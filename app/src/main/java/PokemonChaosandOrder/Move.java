@@ -145,6 +145,10 @@ public class Move {
         return pp;
     }
     
+    public void setPP(int newPP){
+        pp = newPP;
+    }
+    
     public int getMaxPP(){
         return ppMax;
     }
