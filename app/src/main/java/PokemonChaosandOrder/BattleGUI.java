@@ -13,6 +13,8 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ButtonModel;
 import javax.swing.ImageIcon;
 
@@ -25,7 +27,8 @@ public class BattleGUI extends javax.swing.JFrame {
     /**
      * Creates new form BattleGUI
      */
-    public BattleGUI() {
+    public BattleGUI() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
+
         initComponents();
         battleScreen.setVisible(true);
         pokemonScreen.setVisible(false);
@@ -37,7 +40,20 @@ public class BattleGUI extends javax.swing.JFrame {
         Pokemon6.setText(userPokemon[5].getName());
         changePokemon(userPokemonImage,userPokemon[uPKMNNum]);
         changePokemon(enemyPokemonImage,enemyPokemon[ePKMNNum]);
+        //Sound sound = new Sound();
+        //String filepath = "\\main\\java\\PokemonChaosandOrder\\music.wav";
+        //URL soundURL = BattleGUI.class.getResource(filepath);
+        //System.out.println(soundURL);
+        //playMusic(sound, soundURL);
+
     }
+    
+    public static void playMusic(Sound audio, URL url) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
+        audio.setFile(url);
+        audio.play();
+        audio.loop();
+    }
+    
     public static Pokemon userPokemon[];
     public static Pokemon enemyPokemon[];
     public static Pokemon activePokemon;
@@ -871,7 +887,15 @@ public class BattleGUI extends javax.swing.JFrame {
         System.out.println("hello world");
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BattleGUI().setVisible(true);
+                try {
+                    new BattleGUI().setVisible(true);
+                } catch (UnsupportedAudioFileException ex) {
+                    Logger.getLogger(BattleGUI.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (LineUnavailableException ex) {
+                    Logger.getLogger(BattleGUI.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(BattleGUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
