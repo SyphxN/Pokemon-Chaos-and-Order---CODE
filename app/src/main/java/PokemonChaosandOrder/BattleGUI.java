@@ -69,7 +69,6 @@ public class BattleGUI extends javax.swing.JFrame {
         resultLabel = new javax.swing.JTextPane();
         pokemonScreen = new javax.swing.JPanel();
         selectPokemon = new javax.swing.JButton();
-        backButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         resultLabel1 = new javax.swing.JTextPane();
         Pokemon2 = new javax.swing.JRadioButton();
@@ -207,15 +206,6 @@ public class BattleGUI extends javax.swing.JFrame {
             }
         });
 
-        backButton1.setBackground(new java.awt.Color(255, 0, 0));
-        backButton1.setFont(new java.awt.Font("Good Times", 0, 15)); // NOI18N
-        backButton1.setText("Back");
-        backButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButton1ActionPerformed(evt);
-            }
-        });
-
         resultLabel1.setEditable(false);
         resultLabel1.setBackground(new java.awt.Color(255, 153, 51));
         resultLabel1.setFont(new java.awt.Font("Good Times", 0, 15)); // NOI18N
@@ -275,33 +265,27 @@ public class BattleGUI extends javax.swing.JFrame {
             pokemonScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pokemonScreenLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pokemonScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pokemonScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pokemonScreenLayout.createSequentialGroup()
-                        .addComponent(backButton1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pokemonScreenLayout.createSequentialGroup()
-                        .addGroup(pokemonScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(pokemonScreenLayout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(selectPokemon, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE))
-                            .addGroup(pokemonScreenLayout.createSequentialGroup()
-                                .addGroup(pokemonScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(Pokemon2, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
-                                    .addComponent(Pokemon3, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
-                                    .addComponent(Pokemon4, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
-                                    .addComponent(Pokemon5, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
-                                    .addComponent(Pokemon6, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
-                                    .addComponent(Pokemon1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18))))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(selectPokemon, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE))
+                    .addGroup(pokemonScreenLayout.createSequentialGroup()
+                        .addGroup(pokemonScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Pokemon2, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
+                            .addComponent(Pokemon3, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
+                            .addComponent(Pokemon4, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
+                            .addComponent(Pokemon5, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
+                            .addComponent(Pokemon6, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
+                            .addComponent(Pokemon1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(18, 18, 18))
         );
         pokemonScreenLayout.setVerticalGroup(
             pokemonScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pokemonScreenLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(backButton1)
+                .addGap(30, 30, 30)
                 .addGroup(pokemonScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pokemonScreenLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -389,7 +373,7 @@ public class BattleGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         switch(GUIState){
             case 0:
-                setGUIState(3);
+                setGUIState(4);
                 break;
             case 1:
                 startTurn(activePokemon.getMoves()[2]);
@@ -422,11 +406,6 @@ public class BattleGUI extends javax.swing.JFrame {
             updateHP(enemyInfo, activeEnemyPokemon);
             updateHP(yourInfo, activePokemon);
     }//GEN-LAST:event_selectPokemonActionPerformed
-
-    private void backButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButton1ActionPerformed
-        // TODO add your handling code here:
-        setGUIState(0);
-    }//GEN-LAST:event_backButton1ActionPerformed
 
     private void Pokemon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pokemon1ActionPerformed
         // TODO add your handling code here:
@@ -538,6 +517,9 @@ public class BattleGUI extends javax.swing.JFrame {
     private int GUIState = 0;
     
     private void setGUIState(int state){
+        if (activePokemon.getHp() ==0){
+            state =2;
+        }
         GUIState = state;
         switch(state){
             case 0:
@@ -558,7 +540,9 @@ public class BattleGUI extends javax.swing.JFrame {
                 battleScreen.setVisible(false);
                 pokemonScreen.setVisible(true);
                 break;
-            case 3:
+            case 4:
+                System.out.println("closing");
+                System.exit(0);
                 break;
             default:
                 
@@ -607,7 +591,7 @@ public class BattleGUI extends javax.swing.JFrame {
     private void buttonDActionPerformed(ActionEvent evt) {
         switch(GUIState){
             case 0:
-                setGUIState(0);
+                setGUIState(4);
                 break;
             case 1:
                 startTurn(activePokemon.getMoves()[3]);
@@ -615,7 +599,7 @@ public class BattleGUI extends javax.swing.JFrame {
                 break;
             case 2:
                 break;
-            case 4:
+            case 3:
                 break;
             default:
                 
@@ -677,7 +661,8 @@ public class BattleGUI extends javax.swing.JFrame {
                 if(activePokemon.getHp() == 0){
                     resultLabel.setText(resultLabel.getText()+"\n"+activePokemon.getName()+" has fainted.");
                     uPKMNNum+=1;
-                    changePokemon(userPokemonImage,userPokemon[uPKMNNum]);
+                    //buttonBActionPerformed();
+                    System.out.println("Fainted");
                 }  
             }catch(java.lang.ArrayIndexOutOfBoundsException ArrayIndexOutOfBoundsException){
                 if(uPKMNNum>ePKMNNum){
@@ -688,6 +673,8 @@ public class BattleGUI extends javax.swing.JFrame {
                 gameEnded = true;
             }
             resultLabel.setText(resultLabel.getText()+"\n\n");
+        }else{
+            System.out.println("Can't attack");
         }
     }
 
@@ -874,7 +861,6 @@ public class BattleGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton Pokemon5;
     private javax.swing.JRadioButton Pokemon6;
     private javax.swing.JButton backButton;
-    private javax.swing.JButton backButton1;
     private javax.swing.JPanel battleScreen;
     private javax.swing.JButton buttonA;
     private javax.swing.JButton buttonB;
