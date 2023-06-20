@@ -42,7 +42,7 @@ public class BattleGUI extends javax.swing.JFrame {
         changePokemon(userPokemonImage,userPokemon[uPKMNNum]);
         changePokemon(enemyPokemonImage,enemyPokemon[ePKMNNum]);
         try{
-            ImageIcon imageIcon = new ImageIcon(ImageIO.read(new URL("https://gamepress.gg/pokemonmasters/sites/pokemonmasters/files/2019-08/b001_19000_00_256.ktx_.png")));
+            ImageIcon imageIcon = new ImageIcon(ImageIO.read(new URL("https://lh5.googleusercontent.com/97uoxOOn-uS54KaktYJBfzRQQcDwUlA3ntfKKU7ASZHDuuhzplDa31-WsWkNrC0oSiMwluDVy_CsooHJe42ObFs")));
             Image scaledImage = imageIcon.getImage().getScaledInstance(jLabel2.getWidth(), jLabel2.getHeight(), Image.SCALE_SMOOTH);
             ImageIcon scaledIcon = new ImageIcon(scaledImage);
             jLabel2.setIcon(scaledIcon);
@@ -77,6 +77,13 @@ public class BattleGUI extends javax.swing.JFrame {
 
         pokemonSelector = new javax.swing.ButtonGroup();
         jLayeredPane2 = new javax.swing.JLayeredPane();
+        bagScreen = new javax.swing.JPanel();
+        useItem = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        resultLabel2 = new javax.swing.JTextPane();
+        Potion = new javax.swing.JRadioButton();
+        jLabel2 = new javax.swing.JLabel();
+        backButton1 = new javax.swing.JButton();
         battleScreen = new javax.swing.JPanel();
         buttonD = new javax.swing.JButton();
         buttonB = new javax.swing.JButton();
@@ -100,18 +107,85 @@ public class BattleGUI extends javax.swing.JFrame {
         Pokemon6 = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         Pokemon1 = new javax.swing.JRadioButton();
-        bagScreen = new javax.swing.JPanel();
-        useItem = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        resultLabel2 = new javax.swing.JTextPane();
-        Potion = new javax.swing.JRadioButton();
-        jLabel2 = new javax.swing.JLabel();
-        backButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pokemon Chaos and Order");
         setBackground(new java.awt.Color(255, 255, 153));
-        setPreferredSize(new java.awt.Dimension(1020, 662));
+        setPreferredSize(new java.awt.Dimension(1193, 643));
+
+        bagScreen.setBackground(new java.awt.Color(0, 153, 153));
+        bagScreen.setPreferredSize(new java.awt.Dimension(1193, 643));
+
+        useItem.setBackground(new java.awt.Color(255, 0, 0));
+        useItem.setFont(new java.awt.Font("Good Times", 0, 15)); // NOI18N
+        useItem.setText("Use Item");
+        useItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                useItemActionPerformed(evt);
+            }
+        });
+
+        resultLabel2.setEditable(false);
+        resultLabel2.setBackground(new java.awt.Color(255, 153, 51));
+        resultLabel2.setFont(new java.awt.Font("Good Times", 0, 15)); // NOI18N
+        jScrollPane3.setViewportView(resultLabel2);
+
+        pokemonSelector.add(Potion);
+        Potion.setFont(new java.awt.Font("Good Times", 0, 15)); // NOI18N
+        Potion.setText("Potion (10/10)");
+        Potion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PotionActionPerformed(evt);
+            }
+        });
+
+        backButton1.setBackground(new java.awt.Color(255, 0, 0));
+        backButton1.setFont(new java.awt.Font("Good Times", 0, 15)); // NOI18N
+        backButton1.setText("Back");
+        backButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout bagScreenLayout = new javax.swing.GroupLayout(bagScreen);
+        bagScreen.setLayout(bagScreenLayout);
+        bagScreenLayout.setHorizontalGroup(
+            bagScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bagScreenLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(bagScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(bagScreenLayout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(useItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18))
+                    .addGroup(bagScreenLayout.createSequentialGroup()
+                        .addGroup(bagScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(backButton1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Potion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 653, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(175, 175, 175))))
+        );
+        bagScreenLayout.setVerticalGroup(
+            bagScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bagScreenLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addGroup(bagScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bagScreenLayout.createSequentialGroup()
+                        .addComponent(backButton1)
+                        .addGap(61, 61, 61)
+                        .addComponent(Potion)
+                        .addGap(200, 200, 200))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bagScreenLayout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
+                .addGroup(bagScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(useItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE))
+                .addContainerGap(221, Short.MAX_VALUE))
+        );
 
         battleScreen.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -237,6 +311,7 @@ public class BattleGUI extends javax.swing.JFrame {
         );
 
         pokemonScreen.setBackground(new java.awt.Color(0, 153, 153));
+        pokemonScreen.setPreferredSize(new java.awt.Dimension(1193, 643));
 
         selectPokemon.setBackground(new java.awt.Color(255, 0, 0));
         selectPokemon.setFont(new java.awt.Font("Good Times", 0, 15)); // NOI18N
@@ -316,13 +391,13 @@ public class BattleGUI extends javax.swing.JFrame {
                     .addGroup(pokemonScreenLayout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(selectPokemon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(selectPokemon, javax.swing.GroupLayout.DEFAULT_SIZE, 681, Short.MAX_VALUE))
                     .addGroup(pokemonScreenLayout.createSequentialGroup()
                         .addGroup(pokemonScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Pokemon2, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
-                            .addComponent(Pokemon3, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
-                            .addComponent(Pokemon4, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
-                            .addComponent(Pokemon5, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
+                            .addComponent(Pokemon2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Pokemon3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Pokemon4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Pokemon5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(Pokemon6, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
                             .addComponent(Pokemon1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -352,118 +427,44 @@ public class BattleGUI extends javax.swing.JFrame {
                 .addGroup(pokemonScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(selectPokemon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE))
-                .addGap(14, 14, 14))
+                .addGap(0, 0, 0))
         );
 
-        bagScreen.setBackground(new java.awt.Color(0, 153, 153));
-
-        useItem.setBackground(new java.awt.Color(255, 0, 0));
-        useItem.setFont(new java.awt.Font("Good Times", 0, 15)); // NOI18N
-        useItem.setText("Use Item");
-        useItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                useItemActionPerformed(evt);
-            }
-        });
-
-        resultLabel2.setEditable(false);
-        resultLabel2.setBackground(new java.awt.Color(255, 153, 51));
-        resultLabel2.setFont(new java.awt.Font("Good Times", 0, 15)); // NOI18N
-        jScrollPane3.setViewportView(resultLabel2);
-
-        pokemonSelector.add(Potion);
-        Potion.setFont(new java.awt.Font("Good Times", 0, 15)); // NOI18N
-        Potion.setText("Potion");
-        Potion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PotionActionPerformed(evt);
-            }
-        });
-
-        backButton1.setBackground(new java.awt.Color(255, 0, 0));
-        backButton1.setFont(new java.awt.Font("Good Times", 0, 15)); // NOI18N
-        backButton1.setText("Back");
-        backButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout bagScreenLayout = new javax.swing.GroupLayout(bagScreen);
-        bagScreen.setLayout(bagScreenLayout);
-        bagScreenLayout.setHorizontalGroup(
-            bagScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bagScreenLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(bagScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(bagScreenLayout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(useItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(bagScreenLayout.createSequentialGroup()
-                        .addGroup(bagScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Potion, javax.swing.GroupLayout.PREFERRED_SIZE, 653, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(backButton1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(18, 18, 18))
-        );
-        bagScreenLayout.setVerticalGroup(
-            bagScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bagScreenLayout.createSequentialGroup()
-                .addGroup(bagScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(bagScreenLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(bagScreenLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(backButton1)
-                        .addGap(61, 61, 61)
-                        .addComponent(Potion)))
-                .addGap(12, 12, 12)
-                .addGroup(bagScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(useItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE))
-                .addGap(14, 14, 14))
-        );
-
+        jLayeredPane2.setLayer(bagScreen, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(battleScreen, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(pokemonScreen, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(bagScreen, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
         jLayeredPane2.setLayout(jLayeredPane2Layout);
         jLayeredPane2Layout.setHorizontalGroup(
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1205, Short.MAX_VALUE)
+            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(bagScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1249, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane2Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(battleScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1193, Short.MAX_VALUE)
+                    .addComponent(battleScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                    .addGap(16, 16, 16)
-                    .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(pokemonScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bagScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addContainerGap()
+                    .addComponent(pokemonScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1249, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         jLayeredPane2Layout.setVerticalGroup(
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 962, Short.MAX_VALUE)
+            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                .addComponent(bagScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 654, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 493, Short.MAX_VALUE))
             .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane2Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(battleScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 643, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(battleScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(313, Short.MAX_VALUE)))
             .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                    .addGap(16, 16, 16)
-                    .addComponent(pokemonScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(16, 16, 16)
-                    .addComponent(bagScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .addComponent(pokemonScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 1147, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -512,6 +513,7 @@ public class BattleGUI extends javax.swing.JFrame {
     
     Pokemon selection;
     Pokemon previousPokemon = userPokemon[0];
+    
     private void selectPokemonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectPokemonActionPerformed
         if (selection.getHp()>0){
             previousPokemon = activePokemon;
@@ -526,8 +528,12 @@ public class BattleGUI extends javax.swing.JFrame {
         if(previousPokemon.getHp()>0){
             Random rand = new Random();
             Move enemyMove = activeEnemyPokemon.getMoves()[rand.nextInt(3)];
-            resultLabel.setText(enemyMove.attack(activeEnemyPokemon,activePokemon));
-            System.out.println(enemyMove.getName());
+            if(enemyMove.getPriority() || activeEnemyPokemon.getSpeed()>previousPokemon.getSpeed())
+                resultLabel.setText(enemyMove.attack(activeEnemyPokemon,previousPokemon));
+            else{
+                resultLabel.setText(enemyMove.attack(activeEnemyPokemon,activePokemon));
+                System.out.println(enemyMove.getName());
+            }
             updateHP(enemyInfo, activeEnemyPokemon);
             updateHP(yourInfo, activePokemon);
         }
@@ -610,13 +616,22 @@ public class BattleGUI extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_Pokemon6ActionPerformed
-
+    private int potionCount=10;
     private void useItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_useItemActionPerformed
         // TODO add your handling code here:
+        if (potionCount>0 && Potion.isSelected()){
+            activePokemon.setHp(activePokemon.getHp()+20);
+            potionCount--;
+            Potion.setLabel(String.format("Potion (%d/10)",potionCount));
+            updateHP(yourInfo,activePokemon);
+            setGUIState(0);
+        }
     }//GEN-LAST:event_useItemActionPerformed
 
     private void PotionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PotionActionPerformed
         // TODO add your handling code here:
+        Potion.setLabel(String.format("Potion (%d/10)",potionCount));
+        resultLabel2.setText("This Item Heals a Pokemon for 20 HP");
     }//GEN-LAST:event_PotionActionPerformed
 
     private void backButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButton1ActionPerformed
@@ -1000,11 +1015,11 @@ public class BattleGUI extends javax.swing.JFrame {
         userPokemon = new Pokemon[]{new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)])};
         enemyPokemon = new Pokemon[]{new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)])};
         
-        Sound sound = new Sound();
-        String filepath = "\\music.wav";
+        /*Sound sound = new Sound();
+        String filepath = ".\\resources\\music.wav";
         URL soundURL = BattleGUI.class.getResource(filepath);
         System.out.println("File Path: "+soundURL);
-        playMusic(sound, soundURL);
+        playMusic(sound, soundURL);*/
         
         /* Create and display the form */
         System.out.println("hello world");
