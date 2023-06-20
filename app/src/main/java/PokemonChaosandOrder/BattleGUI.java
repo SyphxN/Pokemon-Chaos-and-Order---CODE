@@ -40,11 +40,7 @@ public class BattleGUI extends javax.swing.JFrame {
         Pokemon6.setText(userPokemon[5].getName());
         changePokemon(userPokemonImage,userPokemon[uPKMNNum]);
         changePokemon(enemyPokemonImage,enemyPokemon[ePKMNNum]);
-        //Sound sound = new Sound();
-        //String filepath = "\\main\\java\\PokemonChaosandOrder\\music.wav";
-        //URL soundURL = BattleGUI.class.getResource(filepath);
-        //System.out.println(soundURL);
-        //playMusic(sound, soundURL);
+       
 
     }
     
@@ -798,8 +794,11 @@ public class BattleGUI extends javax.swing.JFrame {
     public static Move wing_attack = new Move("Wing Attack", 100, 35, 35, Flying, "Physical", 0, 0, false);
     /**
      * @param args the command line arguments
+     * @throws IOException
+     * @throws LineUnavailableException
+     * @throws UnsupportedAudioFileException
      */
-    public static void main(String args[]) throws MalformedURLException {
+    public static void main(String args[]) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         Normal.setWeakness(new PKMNType[]{Fighting});
         Normal.setTypeAdvantage(new PKMNType[]{None});
         Fire.setWeakness(new PKMNType[]{Water,Ground, Rock});
@@ -883,6 +882,13 @@ public class BattleGUI extends javax.swing.JFrame {
 
         userPokemon = new Pokemon[]{new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)])};
         enemyPokemon = new Pokemon[]{new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)])};
+        
+        Sound sound = new Sound();
+        String filepath = "\\music.wav";
+        URL soundURL = BattleGUI.class.getResource(filepath);
+        System.out.println("File Path: "+soundURL);
+        playMusic(sound, soundURL);
+        
         /* Create and display the form */
         System.out.println("hello world");
         java.awt.EventQueue.invokeLater(new Runnable() {
