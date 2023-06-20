@@ -10,7 +10,10 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.ButtonModel;
 import javax.swing.ImageIcon;
 
 /**
@@ -26,12 +29,12 @@ public class BattleGUI extends javax.swing.JFrame {
         initComponents();
         battleScreen.setVisible(true);
         pokemonScreen.setVisible(false);
-        jRadioButton1.setText(userPokemon[0].getName());
-        jRadioButton2.setText(userPokemon[1].getName());
-        jRadioButton3.setText(userPokemon[2].getName());
-        jRadioButton4.setText(userPokemon[3].getName());
-        jRadioButton5.setText(userPokemon[4].getName());
-        jRadioButton6.setText(userPokemon[5].getName());
+        Pokemon1.setText(userPokemon[0].getName());
+        Pokemon2.setText(userPokemon[1].getName());
+        Pokemon3.setText(userPokemon[2].getName());
+        Pokemon4.setText(userPokemon[3].getName());
+        Pokemon5.setText(userPokemon[4].getName());
+        Pokemon6.setText(userPokemon[5].getName());
         changePokemon(userPokemonImage,userPokemon[uPKMNNum]);
         changePokemon(enemyPokemonImage,enemyPokemon[ePKMNNum]);
     }
@@ -69,16 +72,15 @@ public class BattleGUI extends javax.swing.JFrame {
         backButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         resultLabel1 = new javax.swing.JTextPane();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
+        Pokemon2 = new javax.swing.JRadioButton();
+        Pokemon3 = new javax.swing.JRadioButton();
+        Pokemon4 = new javax.swing.JRadioButton();
+        Pokemon5 = new javax.swing.JRadioButton();
+        Pokemon6 = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
+        Pokemon1 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1200, 600));
 
         buttonD.setBackground(new java.awt.Color(255, 0, 0));
         buttonD.setFont(new java.awt.Font("Good Times", 0, 15)); // NOI18N
@@ -219,25 +221,53 @@ public class BattleGUI extends javax.swing.JFrame {
         resultLabel1.setFont(new java.awt.Font("Good Times", 0, 15)); // NOI18N
         jScrollPane2.setViewportView(resultLabel1);
 
-        pokemonSelector.add(jRadioButton1);
-        jRadioButton1.setText("jRadioButton1");
+        pokemonSelector.add(Pokemon2);
+        Pokemon2.setText("Pokemon2");
+        Pokemon2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Pokemon2ActionPerformed(evt);
+            }
+        });
 
-        pokemonSelector.add(jRadioButton2);
-        jRadioButton2.setText("jRadioButton1");
+        pokemonSelector.add(Pokemon3);
+        Pokemon3.setText("Pokemon3");
+        Pokemon3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Pokemon3ActionPerformed(evt);
+            }
+        });
 
-        pokemonSelector.add(jRadioButton3);
-        jRadioButton3.setText("jRadioButton1");
+        pokemonSelector.add(Pokemon4);
+        Pokemon4.setText("Pokemon4");
+        Pokemon4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Pokemon4ActionPerformed(evt);
+            }
+        });
 
-        pokemonSelector.add(jRadioButton4);
-        jRadioButton4.setText("jRadioButton1");
+        pokemonSelector.add(Pokemon5);
+        Pokemon5.setText("Pokemon5");
+        Pokemon5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Pokemon5ActionPerformed(evt);
+            }
+        });
 
-        pokemonSelector.add(jRadioButton5);
-        jRadioButton5.setText("jRadioButton1");
+        pokemonSelector.add(Pokemon6);
+        Pokemon6.setText("Pokemon6");
+        Pokemon6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Pokemon6ActionPerformed(evt);
+            }
+        });
 
-        pokemonSelector.add(jRadioButton6);
-        jRadioButton6.setText("jRadioButton1");
-
-        jLabel1.setText("jLabel1");
+        pokemonSelector.add(Pokemon1);
+        Pokemon1.setText("Pokemon1");
+        Pokemon1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Pokemon1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pokemonScreenLayout = new javax.swing.GroupLayout(pokemonScreen);
         pokemonScreen.setLayout(pokemonScreenLayout);
@@ -256,13 +286,13 @@ public class BattleGUI extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(selectPokemon, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE))
                             .addGroup(pokemonScreenLayout.createSequentialGroup()
-                                .addGroup(pokemonScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 653, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 653, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 653, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jRadioButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 653, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jRadioButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 653, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 653, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(pokemonScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Pokemon2, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
+                                    .addComponent(Pokemon3, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
+                                    .addComponent(Pokemon4, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
+                                    .addComponent(Pokemon5, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
+                                    .addComponent(Pokemon6, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
+                                    .addComponent(Pokemon1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(18, 18, 18))))
@@ -272,24 +302,24 @@ public class BattleGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pokemonScreenLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(backButton1)
-                .addGap(18, 18, 18)
                 .addGroup(pokemonScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pokemonScreenLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pokemonScreenLayout.createSequentialGroup()
-                        .addComponent(jRadioButton1)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton2)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pokemonScreenLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(Pokemon1)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton3)
+                        .addComponent(Pokemon2)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton4)
+                        .addComponent(Pokemon3)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton5)
+                        .addComponent(Pokemon4)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton6)
-                        .addGap(18, 18, 18)))
+                        .addComponent(Pokemon5)
+                        .addGap(18, 18, 18)
+                        .addComponent(Pokemon6)))
+                .addGap(12, 12, 12)
                 .addGroup(pokemonScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(selectPokemon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE))
@@ -373,17 +403,108 @@ public class BattleGUI extends javax.swing.JFrame {
                 
         }
     }//GEN-LAST:event_buttonCActionPerformed
-
+    
+    Pokemon selection;
+    
     private void selectPokemonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectPokemonActionPerformed
-        // TODO add your handling code here:
-        pokemonSelector.getSelection();
-        System.out.println();
+        if (selection.getHp()>0){
+            activePokemon = selection;
+            changePokemon(userPokemonImage,selection);
+            setGUIState(0);
+            
+        }else{
+            resultLabel1.setText(selection.getName()+" has fainted, pick another pokemon");
+        }
+        Random rand = new Random();
+            Move enemyMove = activeEnemyPokemon.getMoves()[rand.nextInt(3)];
+            resultLabel.setText(enemyMove.attack(activeEnemyPokemon,activePokemon));
+            System.out.println(enemyMove.getName());
+            updateHP(enemyInfo, activeEnemyPokemon);
+            updateHP(yourInfo, activePokemon);
     }//GEN-LAST:event_selectPokemonActionPerformed
 
     private void backButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButton1ActionPerformed
         // TODO add your handling code here:
         setGUIState(0);
     }//GEN-LAST:event_backButton1ActionPerformed
+
+    private void Pokemon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pokemon1ActionPerformed
+        // TODO add your handling code here:
+        selection = userPokemon[0];
+        try{
+            ImageIcon imageIcon = new ImageIcon(ImageIO.read(userPokemon[0].getImageURL()));
+            Image scaledImage = imageIcon.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH);
+            ImageIcon scaledIcon = new ImageIcon(scaledImage);
+            jLabel1.setIcon(scaledIcon);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_Pokemon1ActionPerformed
+
+    private void Pokemon2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pokemon2ActionPerformed
+        // TODO add your handling code here:
+        selection = userPokemon[1];
+        try{
+            ImageIcon imageIcon = new ImageIcon(ImageIO.read(userPokemon[1].getImageURL()));
+            Image scaledImage = imageIcon.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH);
+            ImageIcon scaledIcon = new ImageIcon(scaledImage);
+            jLabel1.setIcon(scaledIcon);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_Pokemon2ActionPerformed
+
+    private void Pokemon3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pokemon3ActionPerformed
+        // TODO add your handling code here:
+        selection = userPokemon[2];
+        try{
+            ImageIcon imageIcon = new ImageIcon(ImageIO.read(userPokemon[2].getImageURL()));
+            Image scaledImage = imageIcon.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH);
+            ImageIcon scaledIcon = new ImageIcon(scaledImage);
+            jLabel1.setIcon(scaledIcon);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_Pokemon3ActionPerformed
+
+    private void Pokemon4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pokemon4ActionPerformed
+        // TODO add your handling code here:
+        selection = userPokemon[3];
+        try{
+            ImageIcon imageIcon = new ImageIcon(ImageIO.read(userPokemon[3].getImageURL()));
+            Image scaledImage = imageIcon.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH);
+            ImageIcon scaledIcon = new ImageIcon(scaledImage);
+            jLabel1.setIcon(scaledIcon);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_Pokemon4ActionPerformed
+
+    private void Pokemon5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pokemon5ActionPerformed
+        // TODO add your handling code here:
+        selection = userPokemon[4];
+        try{
+            ImageIcon imageIcon = new ImageIcon(ImageIO.read(userPokemon[4].getImageURL()));
+            Image scaledImage = imageIcon.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH);
+            ImageIcon scaledIcon = new ImageIcon(scaledImage);
+            jLabel1.setIcon(scaledIcon);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_Pokemon5ActionPerformed
+
+    private void Pokemon6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pokemon6ActionPerformed
+        // TODO add your handling code here:
+        selection = userPokemon[5];
+        try{
+            ImageIcon imageIcon = new ImageIcon(ImageIO.read(userPokemon[5].getImageURL()));
+            Image scaledImage = imageIcon.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH);
+            ImageIcon scaledIcon = new ImageIcon(scaledImage);
+            jLabel1.setIcon(scaledIcon);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_Pokemon6ActionPerformed
 
     private void changePokemon(javax.swing.JLabel label, Pokemon pokemon){
         
@@ -746,6 +867,12 @@ public class BattleGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton Pokemon1;
+    private javax.swing.JRadioButton Pokemon2;
+    private javax.swing.JRadioButton Pokemon3;
+    private javax.swing.JRadioButton Pokemon4;
+    private javax.swing.JRadioButton Pokemon5;
+    private javax.swing.JRadioButton Pokemon6;
     private javax.swing.JButton backButton;
     private javax.swing.JButton backButton1;
     private javax.swing.JPanel battleScreen;
@@ -757,12 +884,6 @@ public class BattleGUI extends javax.swing.JFrame {
     private javax.swing.JLabel enemyPokemonImage;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLayeredPane jLayeredPane2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel pokemonScreen;

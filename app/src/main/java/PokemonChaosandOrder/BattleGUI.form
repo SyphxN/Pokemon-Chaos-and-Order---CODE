@@ -7,9 +7,6 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1200, 600]"/>
-    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -303,13 +300,13 @@
                                       <Component id="selectPokemon" pref="430" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jRadioButton2" min="-2" pref="653" max="-2" attributes="0"/>
-                                          <Component id="jRadioButton3" min="-2" pref="653" max="-2" attributes="0"/>
-                                          <Component id="jRadioButton4" min="-2" pref="653" max="-2" attributes="0"/>
-                                          <Component id="jRadioButton5" min="-2" pref="653" max="-2" attributes="0"/>
-                                          <Component id="jRadioButton6" min="-2" pref="653" max="-2" attributes="0"/>
-                                          <Component id="jRadioButton1" alignment="0" min="-2" pref="653" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="Pokemon2" pref="653" max="32767" attributes="0"/>
+                                          <Component id="Pokemon3" pref="653" max="32767" attributes="0"/>
+                                          <Component id="Pokemon4" pref="653" max="32767" attributes="0"/>
+                                          <Component id="Pokemon5" pref="653" max="32767" attributes="0"/>
+                                          <Component id="Pokemon6" pref="653" max="32767" attributes="0"/>
+                                          <Component id="Pokemon1" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jLabel1" max="32767" attributes="0"/>
@@ -326,27 +323,27 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="backButton1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jLabel1" min="-2" pref="283" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="Pokemon1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                              <Component id="Pokemon2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Pokemon3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jRadioButton4" min="-2" max="-2" attributes="0"/>
+                              <Component id="Pokemon4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jRadioButton5" min="-2" max="-2" attributes="0"/>
+                              <Component id="Pokemon5" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jRadioButton6" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="Pokemon6" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="selectPokemon" max="32767" attributes="0"/>
                           <Component id="jScrollPane2" pref="123" max="32767" attributes="0"/>
@@ -405,58 +402,73 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+            <Component class="javax.swing.JRadioButton" name="Pokemon2">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="pokemonSelector"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="jRadioButton1"/>
+                <Property name="text" type="java.lang.String" value="Pokemon2"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Pokemon2ActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+            <Component class="javax.swing.JRadioButton" name="Pokemon3">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="pokemonSelector"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="jRadioButton1"/>
+                <Property name="text" type="java.lang.String" value="Pokemon3"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Pokemon3ActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton3">
+            <Component class="javax.swing.JRadioButton" name="Pokemon4">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="pokemonSelector"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="jRadioButton1"/>
+                <Property name="text" type="java.lang.String" value="Pokemon4"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Pokemon4ActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton4">
+            <Component class="javax.swing.JRadioButton" name="Pokemon5">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="pokemonSelector"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="jRadioButton1"/>
+                <Property name="text" type="java.lang.String" value="Pokemon5"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Pokemon5ActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton5">
+            <Component class="javax.swing.JRadioButton" name="Pokemon6">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="pokemonSelector"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="jRadioButton1"/>
+                <Property name="text" type="java.lang.String" value="Pokemon6"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton6">
-              <Properties>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="pokemonSelector"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="jRadioButton1"/>
-              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Pokemon6ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="Pokemon1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel1"/>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="pokemonSelector"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Pokemon1"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Pokemon1ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
