@@ -71,7 +71,8 @@ public class Pokemon {
         this.baseSpeed = clone.getBaseSpeed();
         this.types = clone.getTypes();
         this.moves = clone.getMoves();
-        this.hp = clone.getBaseHP();
+        this.maxHP = clone.getMaxHP();
+        this.hp = clone.getMaxHP();
         this.imageURL = clone.getImageURL();
         this.attack = clone.getAttack();
         this.defense = clone.getDefense();

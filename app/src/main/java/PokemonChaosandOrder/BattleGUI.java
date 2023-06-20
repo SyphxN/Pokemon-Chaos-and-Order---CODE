@@ -80,6 +80,10 @@ public class BattleGUI extends javax.swing.JFrame {
         Pokemon1 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Pokemon Chaos and Order");
+        setBackground(new java.awt.Color(255, 255, 153));
+
+        battleScreen.setBackground(new java.awt.Color(0, 153, 153));
 
         buttonD.setBackground(new java.awt.Color(255, 0, 0));
         buttonD.setFont(new java.awt.Font("Good Times", 0, 15)); // NOI18N
@@ -133,9 +137,12 @@ public class BattleGUI extends javax.swing.JFrame {
             }
         });
 
+        jScrollPane1.setBackground(new java.awt.Color(255, 204, 102));
+
         resultLabel.setEditable(false);
         resultLabel.setBackground(new java.awt.Color(255, 153, 51));
         resultLabel.setFont(new java.awt.Font("Good Times", 0, 15)); // NOI18N
+        resultLabel.setForeground(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(resultLabel);
 
         javax.swing.GroupLayout battleScreenLayout = new javax.swing.GroupLayout(battleScreen);
@@ -197,6 +204,8 @@ public class BattleGUI extends javax.swing.JFrame {
                 .addGap(14, 14, 14))
         );
 
+        pokemonScreen.setBackground(new java.awt.Color(0, 153, 153));
+
         selectPokemon.setBackground(new java.awt.Color(255, 0, 0));
         selectPokemon.setFont(new java.awt.Font("Good Times", 0, 15)); // NOI18N
         selectPokemon.setText("Select Pokemon");
@@ -212,6 +221,7 @@ public class BattleGUI extends javax.swing.JFrame {
         jScrollPane2.setViewportView(resultLabel1);
 
         pokemonSelector.add(Pokemon2);
+        Pokemon2.setFont(new java.awt.Font("Good Times", 0, 15)); // NOI18N
         Pokemon2.setText("Pokemon2");
         Pokemon2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -220,6 +230,7 @@ public class BattleGUI extends javax.swing.JFrame {
         });
 
         pokemonSelector.add(Pokemon3);
+        Pokemon3.setFont(new java.awt.Font("Good Times", 0, 15)); // NOI18N
         Pokemon3.setText("Pokemon3");
         Pokemon3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -228,6 +239,7 @@ public class BattleGUI extends javax.swing.JFrame {
         });
 
         pokemonSelector.add(Pokemon4);
+        Pokemon4.setFont(new java.awt.Font("Good Times", 0, 15)); // NOI18N
         Pokemon4.setText("Pokemon4");
         Pokemon4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -236,6 +248,7 @@ public class BattleGUI extends javax.swing.JFrame {
         });
 
         pokemonSelector.add(Pokemon5);
+        Pokemon5.setFont(new java.awt.Font("Good Times", 0, 15)); // NOI18N
         Pokemon5.setText("Pokemon5");
         Pokemon5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -244,6 +257,7 @@ public class BattleGUI extends javax.swing.JFrame {
         });
 
         pokemonSelector.add(Pokemon6);
+        Pokemon6.setFont(new java.awt.Font("Good Times", 0, 15)); // NOI18N
         Pokemon6.setText("Pokemon6");
         Pokemon6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -252,6 +266,7 @@ public class BattleGUI extends javax.swing.JFrame {
         });
 
         pokemonSelector.add(Pokemon1);
+        Pokemon1.setFont(new java.awt.Font("Good Times", 0, 15)); // NOI18N
         Pokemon1.setText("Pokemon1");
         Pokemon1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -287,9 +302,7 @@ public class BattleGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pokemonScreenLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(pokemonScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pokemonScreenLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pokemonScreenLayout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(Pokemon1)
@@ -389,9 +402,10 @@ public class BattleGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonCActionPerformed
     
     Pokemon selection;
-    
+    Pokemon previousPokemon = userPokemon[0];
     private void selectPokemonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectPokemonActionPerformed
         if (selection.getHp()>0){
+            previousPokemon = activePokemon;
             activePokemon = selection;
             changePokemon(userPokemonImage,selection);
             setGUIState(0);
@@ -399,12 +413,15 @@ public class BattleGUI extends javax.swing.JFrame {
         }else{
             resultLabel1.setText(selection.getName()+" has fainted, pick another pokemon");
         }
-        Random rand = new Random();
+        
+        if(previousPokemon.getHp()>0){
+            Random rand = new Random();
             Move enemyMove = activeEnemyPokemon.getMoves()[rand.nextInt(3)];
             resultLabel.setText(enemyMove.attack(activeEnemyPokemon,activePokemon));
             System.out.println(enemyMove.getName());
             updateHP(enemyInfo, activeEnemyPokemon);
             updateHP(yourInfo, activePokemon);
+        }
     }//GEN-LAST:event_selectPokemonActionPerformed
 
     private void Pokemon1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pokemon1ActionPerformed
@@ -517,7 +534,7 @@ public class BattleGUI extends javax.swing.JFrame {
     private int GUIState = 0;
     
     private void setGUIState(int state){
-        if (activePokemon.getHp() ==0){
+        if (activePokemon.getHp() ==0 && !gameEnded){
             state =2;
         }
         GUIState = state;
@@ -641,11 +658,14 @@ public class BattleGUI extends javax.swing.JFrame {
             }
             if(first.equals(activePokemon)){
                 resultLabel.setText(resultLabel.getText()+"\n"+move.attack(first, second)+"\n"+enemyMove.attack(second, first));
-                resultLabel1.setText(resultLabel.getText()+"\n"+move.attack(first, second)+"\n"+enemyMove.attack(second, first));
-
+                if(second.getHp()>0){
+                    resultLabel1.setText(resultLabel.getText()+"\n"+move.attack(first, second)+"\n"+enemyMove.attack(second, first));
+                }
             }else if(first.equals(activeEnemyPokemon)){
                 resultLabel.setText(resultLabel.getText()+"\n"+enemyMove.attack(first, second)+"\n"+move.attack(second, first));
-                resultLabel1.setText(resultLabel.getText()+"\n"+enemyMove.attack(first, second)+"\n"+move.attack(second, first));
+                if(second.getHp()>0){
+                    resultLabel1.setText(resultLabel.getText()+"\n"+enemyMove.attack(first, second)+"\n"+move.attack(second, first));
+                }
             }else{
                 System.out.println("Error");
             }
@@ -673,6 +693,8 @@ public class BattleGUI extends javax.swing.JFrame {
                 gameEnded = true;
             }
             resultLabel.setText(resultLabel.getText()+"\n\n");
+        }else if(gameEnded){
+            resultLabel.setText("All of your opponents Pokemon have fainted\n\n YOU WON!!!");
         }else{
             System.out.println("Can't attack");
         }
@@ -817,8 +839,9 @@ public class BattleGUI extends javax.swing.JFrame {
         Moltres = new Pokemon("Moltres", 100, new int[]{15, 15, 15, 15, 15}, 90, 100, 90, 125, 85, 90, new PKMNType[]{Fire, Flying}, new Move[]{new Move(fire_blast), new Move(take_down), new Move(toxic), new Move(rest) },"https://www.smogon.com/dex/media/sprites/rs/moltres.png");
         Golem = new Pokemon("Golem", 100, new int[]{15, 15, 15, 15, 15}, 80, 120, 130, 55, 65, 45, new PKMNType[]{Rock, Ground}, new Move[]{new Move(earthquake), new Move(rock_slide), new Move(explosion), new Move(body_slam) },"https://www.smogon.com/dex/media/sprites/rs/golem.png");
         Magneton = new Pokemon("Magneton", 100, new int[]{15, 15, 15, 15, 15}, 50, 60, 95, 120, 70, 70, new PKMNType[]{Electric, Steel}, new Move[]{new Move(thunderbolt), new Move(hyper_beam), new Move(thunder_wave), new Move(rest) },"https://www.smogon.com/dex/media/sprites/rs/magneton.png");
-        
-        //userPokemon = {Mewtwo};
+        Pokemon[] allPokemon = new Pokemon[]{Venusaur, Charizard,Blastoise,Butterfree,Pidgeot,Pikachu, Nidoking,Nidoqueen,Wigglytuff,Primeape,Gengar,Mewtwo,Dragonite,Articuno,Zapdos,Moltres,Golem,Magneton};
+        Random rand = new Random();
+//userPokemon = {Mewtwo};
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -842,8 +865,8 @@ public class BattleGUI extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        userPokemon = new Pokemon[]{Mewtwo,Charizard,Pidgeot,Golem,Wigglytuff,Pikachu};
-        enemyPokemon = new Pokemon[]{Dragonite,Blastoise,Gengar,Butterfree,Primeape,Moltres};
+        userPokemon = new Pokemon[]{new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)])};
+        enemyPokemon = new Pokemon[]{new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)]),new Pokemon(allPokemon[rand.nextInt(allPokemon.length-1)])};
         /* Create and display the form */
         System.out.println("hello world");
         java.awt.EventQueue.invokeLater(new Runnable() {
